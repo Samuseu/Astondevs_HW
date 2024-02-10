@@ -34,5 +34,5 @@
 
 - *Вот тут другие реализации данного задания ->* [Result.java](src/main/java/ru/astondevs/lesson2/moreoptions/Result.java)
  
-- ![This image](images/lesson_2/lesson_2_7.png)
+![This image](images/lesson_2/lesson_2_7.png)
 

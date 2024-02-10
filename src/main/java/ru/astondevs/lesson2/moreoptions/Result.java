@@ -4,9 +4,9 @@ package ru.astondevs.lesson2.moreoptions;
 public class Result {
     public static void main(String[] args) {
         printThreeWords();
-        checkSumSign(1, 10);
-        printColor(20);
-        compareNumbers(20, 2);
+        checkSumSign(4, 10);
+        printColor(115);
+        compareNumbers(21, 20);
     }
 
     private static void printThreeWords() {
