@@ -8,13 +8,13 @@ public class Result {
         compareNumbers();
     }
 
-    public static void printThreeWords() {
+    private static void printThreeWords() {
         System.out.println("Orange");
         System.out.println("Banana");
         System.out.println("Apple");
     }
 
-    public static void checkSumSign() {
+    private static void checkSumSign() {
         int a = 4;
         int b = 10;
         int sum = a + b;
@@ -26,7 +26,7 @@ public class Result {
         }
     }
 
-    public static void printColor() {
+    private static void printColor() {
         int value = 115;
         if (value <= 0) {
             System.out.println("Красный");
@@ -37,7 +37,7 @@ public class Result {
         }
     }
 
-    public static void compareNumbers() {
+    private static void compareNumbers() {
         int a = 21;
         int b = 20;
 
