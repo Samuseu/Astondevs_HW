@@ -1,6 +1,6 @@
   <img src="https://storage.yandexcloud.net/dev.astonsite.s3backet/aston-redisign/common/logo/AstonLogo_dark.svg" title="AstonImg"/>&nbsp;
 ## Homework
-> В самих ветках будут находится домашки.
+> В самих ветках будут находиться домашки.
 
 ### Программа курса
 | Дата       | Тема                                       |
