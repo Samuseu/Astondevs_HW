@@ -30,5 +30,6 @@
 5. Методы из пунктов 1-5 вызовите из метода main() и посмотрите корректно ли они работают.
    
 ![This image](images/lesson_2/lesson_2_5.png)
+![This image](images/lesson_2/lesson_2_6.png)
 
 
