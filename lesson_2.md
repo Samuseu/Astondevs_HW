@@ -5,7 +5,7 @@
 
 ## Практическое задание
 
-1. Создайте метод printThreeWords() , который при вызоведолжен отпечатать в столбец три слова: Orange, Banana,Apple.
+1. Создайте метод printThreeWords() , который при вызове должен отпечатать в столбец три слова: Orange, Banana,Apple.
    
 ![This image](images/lesson_2/lesson_2_1.png)
 
