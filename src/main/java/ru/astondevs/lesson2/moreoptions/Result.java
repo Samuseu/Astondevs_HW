@@ -36,7 +36,7 @@ public class Result {
     }
 
     private static void compareNumbers(int a, int b) {
-        String result = (a >= b) ? "a>=b": "a<b";
+        String result = (a >= b) ? "a>=b" : "a<b";
         System.out.println(result);
     }
 }
