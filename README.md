@@ -9,17 +9,17 @@
 
 ### Программа курса
 
-| Дата       | Тема                                                | Результат                                                                         |
-|------------|-----------------------------------------------------|-----------------------------------------------------------------------------------|
-| 05.02.2024 | 1. Введение в автоматизацию тестирования            | [Lesson_1](./README.md#)                                                          |
-| 09.02.2024 | 2. Введение в Java                                  | [Lesson_2](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_2/lesson_2.md#)    |
-| 12.02.2024 | 3. Методы, операторы, циклы, массивы                | [Lesson_3](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_3/lesson_3.md#)    |
-| 16.02.2024 | 4. Парадигма ООП                                    | [Lesson_4](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_4/lesson_4.md#)    |
-| 19.02.2024 | 5. Принципы ООП                                     | [Lesson_5](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_5/lesson_5.md#)    |
-| 23.02.2024 | 6. Работа со строками                               | [Lesson_6](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_6/lesson_6.md#)    |
-| 26.02.2024 | 7. Исключения                                       | [Lesson_7](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_7/lesson_7.md#)    |
-| 01.03.2024 | 8. Коллекции                                        | [Lesson_8](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_8/lesson_8.md#)    |
-| 04.03.2024 | 9. Лямбда и Stream API                              | [Lesson_9](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_9/lesson_9.md#)    |
+| Дата       | Тема                                                | Результат                                                                        |
+|------------|-----------------------------------------------------|----------------------------------------------------------------------------------|
+| 05.02.2024 | 1. Введение в автоматизацию тестирования            | [Lesson_1](https://github.com/Samuseu/Astondevs_HW/tree/master/README.md#)       |
+| 09.02.2024 | 2. Введение в Java                                  | [Lesson_2](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_2/lesson_2.md#)   |
+| 12.02.2024 | 3. Методы, операторы, циклы, массивы                | [Lesson_3](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_3/lesson_3.md#)   |
+| 16.02.2024 | 4. Парадигма ООП                                    | [Lesson_4](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_4/lesson_4.md#)   |
+| 19.02.2024 | 5. Принципы ООП                                     | [Lesson_5](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_5/lesson_5.md#)   |
+| 23.02.2024 | 6. Работа со строками                               | [Lesson_6](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_6/lesson_6.md#)   |
+| 26.02.2024 | 7. Исключения                                       | [Lesson_7](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_7/lesson_7.md#)   |
+| 01.03.2024 | 8. Коллекции                                        | [Lesson_8](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_8/lesson_8.md#)   |
+| 04.03.2024 | 9. Лямбда и Stream API                              | [Lesson_9](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_9/lesson_9.md#)   |
 | 07.03.2024 | 10. Обобщения                                       | [Lesson_10](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_10/lesson_10.md#) |
 | 11.03.2024 | 11. Инструменты сборки проектов                     | [Lesson_11](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_11/lesson_11.md#) |
 | 15.03.2024 | 12. Фреймворки для автоматизации тестирования       | [Lesson_12](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_12/lesson_12.md#) |
