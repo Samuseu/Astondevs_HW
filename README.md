@@ -29,4 +29,3 @@
 | 29.03.2024 | 16. Автоматизация тестирования api (+JDBC)          | [Lesson_16](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_16/lesson_16.md#) |
 | 01.04.2024 | 17. Автоматизация тестирования мобильных приложений | [Lesson_17](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_17/lesson_17.md#) |
 | 05.04.2024 | 18. Репортеры                                       | [Lesson_18](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_18/lesson_18.md#) |
-
