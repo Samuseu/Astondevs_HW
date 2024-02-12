@@ -32,7 +32,7 @@
 ![This image](images/lesson_2/lesson_2_5.png)
 ![This image](images/lesson_2/lesson_2_6.png)
 
-- *Вот тут другие реализации данного задания ->* [Result.java](src/main/java/ru/astondevs/lesson2/moreoptions/Result.java)
+> ### Вот тут другие реализации данного задания -> [Result.java](src/main/java/ru/astondevs/lesson3/moreoptions/Result.java)
  
 ![This image](images/lesson_2/lesson_2_7.png)
 
