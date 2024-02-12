@@ -57,8 +57,7 @@
 ![This image](images/lesson_3/lesson_3_10.png)
 ![This image](images/lesson_3/lesson_3_11.png)
 
-- *Вот тут другие реализации данного
-  задания ->* [Result.java](src/main/java/ru/astondevs/lesson3/moreoptions/Result.java)
+> ### Вот тут другие реализации данного задания -> [Result.java](src/main/java/ru/astondevs/lesson3/moreoptions/Result.java)
 
 ![This image](images/lesson_3/lesson_3_12.png)
 
