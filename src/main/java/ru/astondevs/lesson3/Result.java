@@ -35,7 +35,7 @@ public class Result {
         System.out.println(Arrays.toString(result));
     }
 
-    public static boolean checkSum(int a, int b) {
+    private static boolean checkSum(int a, int b) {
         int check = a + b;
         if (check >= 10 && check <= 20) {
             return true;
@@ -44,7 +44,7 @@ public class Result {
         }
     }
 
-    public static void checkNumberIsPositiveOrNegative(int number) {
+    private static void checkNumberIsPositiveOrNegative(int number) {
         if (number >= 0) {
             System.out.println("Число " + number + " положительное");
         } else {
@@ -53,7 +53,7 @@ public class Result {
     }
 
 
-    public static boolean checkPositiveOrNegative(int number) {
+    private static boolean checkPositiveOrNegative(int number) {
         if (number > 0) {
             return false;
         } else {
@@ -61,20 +61,20 @@ public class Result {
         }
     }
 
-    public static void printRepeatString(String word, int number) {
+    private static void printRepeatString(String word, int number) {
         for (int i = 0; i < number; i++) {
             System.out.println(word);
         }
     }
 
-    public static boolean checkLeapYear(int year) {
+    private static boolean checkLeapYear(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             return true;
         } else
             return false;
     }
 
-    public static void swapZeroToOne() {
+    private static void swapZeroToOne() {
         int[] numbers = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == 0) {
@@ -86,7 +86,7 @@ public class Result {
         System.out.println(Arrays.toString(numbers));
     }
 
-    public static void fillTo100() {
+    private static void fillTo100() {
         int[] arr = new int[100];
         for (int i = 0; i < 100; i++) {
             arr[i] = i + 1;
@@ -94,7 +94,7 @@ public class Result {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void numbersLessThan6MultipliedBy2() {
+    private static void numbersLessThan6MultipliedBy2() {
         int[] arrays = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         for (int i = 0; i < arrays.length; i++) {
             if (arrays[i] < 6) {
@@ -104,7 +104,7 @@ public class Result {
         System.out.println(Arrays.toString(arrays));
     }
 
-    public static void diagonally() {
+    private static void diagonally() {
         int[][] square = new int[5][5];
 
         for (int i = 0; i < 5; i++) {
@@ -121,7 +121,7 @@ public class Result {
         }
     }
 
-    public static int[] arrays(int len, int initialValue) {
+    private static int[] arrays(int len, int initialValue) {
         int[] array = new int[len];
         for (int i = 0; i < array.length; i++) {
             array[i] = initialValue;

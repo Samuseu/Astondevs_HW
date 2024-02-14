@@ -36,21 +36,21 @@ public class Result {
 
     }
 
-    public static boolean checkSum(int a, int b) {
+    private static boolean checkSum(int a, int b) {
         int check = a + b;
         return check >= 10 && check <= 20;
     }
 
-    public static void checkNumberIsPositiveOrNegative(int number) {
+    private static void checkNumberIsPositiveOrNegative(int number) {
         String result = (number >= 0) ? "Число " + number + " положительное" : "Число " + number + " отрицательное";
         System.out.println(result);
     }
 
-    public static boolean checkPositiveOrNegative(int number) {
+    private static boolean checkPositiveOrNegative(int number) {
         return number < 0;
     }
 
-    public static void printRepeatString(String word, int number) {
+    private static void printRepeatString(String word, int number) {
         int i = 0;
         while (i < number) {
             System.out.println(word);
@@ -58,11 +58,11 @@ public class Result {
         }
     }
 
-    public static boolean checkLeapYear(int year) {
+    private static boolean checkLeapYear(int year) {
         return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
     }
 
-    public static void swapZeroToOne() {
+    private static void swapZeroToOne() {
         int[] numbers = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = (numbers[i] == 0) ? 1 : 0;
@@ -70,7 +70,7 @@ public class Result {
         System.out.println(Arrays.toString(numbers));
     }
 
-    public static void fillTo100() {
+    private static void fillTo100() {
         int[] arr = new int[100];
         int value = 1;
         int i = 0;
@@ -80,7 +80,7 @@ public class Result {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void numbersLessThan6MultipliedBy2() {
+    private static void numbersLessThan6MultipliedBy2() {
         int[] arrays = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         int i = 0;
         while (i < arrays.length) {
@@ -92,7 +92,7 @@ public class Result {
         System.out.println(Arrays.toString(arrays));
     }
 
-    public static void diagonally() {
+    private static void diagonally() {
         int[][] square = new int[5][5];
 
         for (int i = 0; i < square.length; i++) {
@@ -108,7 +108,7 @@ public class Result {
             System.out.println();
         }
     }
-    public static int[] arrays(int len, int initialValue) {
+    private static int[] arrays(int len, int initialValue) {
         int[] array = new int[len];
         Arrays.fill(array, initialValue);
         return array;
