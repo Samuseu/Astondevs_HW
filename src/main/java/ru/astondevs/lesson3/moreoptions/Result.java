@@ -97,22 +97,22 @@ public class Result {
 
         for (int i = 0; i < square.length; i++) {
             square[i][i] = 1;
-        }
-        for (int i = 0; i < square.length ; i++) {
-            square[i][square.length-1-i]=1;
-        }
-        for (int i = 0; i < square.length; i++) {
             for (int j = 0; j < square.length; j++) {
-                System.out.print(square[i][j] + " ");
+                square[j][5 - 1 - j] = 1;
             }
-            System.out.println();
+        }
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Arrays.toString(square[i]));
         }
     }
+
+
     private static int[] arrays(int len, int initialValue) {
         int[] array = new int[len];
         Arrays.fill(array, initialValue);
         return array;
     }
 }
+
 
 
