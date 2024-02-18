@@ -1,7 +1,7 @@
 package ru.astondevs.lesson4.task2;
 
 public class Employee {
-    private String fullName;
+    private  String fullName;
     private String position;
     private String email;
     private String phone;
@@ -19,13 +19,14 @@ public class Employee {
 
     public void displayInformation() {
         System.out.println(
-                "ФИО: " + this.fullName + "\n" +
+                "ФИО: " + fullName + "\n" +
                 "Должность: " + position + "\n" +
                 "Email: " + email + "\n" +
                 "Телефон: " + phone + "\n" +
                 "Зарплата: " + salary + "\n" +
                 "Возраст: " + age);
-}
+        System.out.println();
+    }
 
     @Override
     public String toString() {
