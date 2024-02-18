@@ -1,7 +1,6 @@
 package ru.astondevs.lesson4.moreoptions.task1;
 
 
-
 public class Result {
     public static void main(String[] args) {
         Employee employee = new Employee(
@@ -14,7 +13,6 @@ public class Result {
                 2000,
                 28);
         employee.displayInformation(employee);
-
     }
 }
 

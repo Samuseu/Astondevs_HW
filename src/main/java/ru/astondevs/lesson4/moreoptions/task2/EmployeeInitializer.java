@@ -7,7 +7,7 @@ public class EmployeeInitializer {
         Employee[] employees = new Employee[size];
 
         for (int i = 0; i < employees.length; i++) {
-            employees[i] =new Employee(
+            employees[i] = new Employee(
                     Data.faker.name().fullName(),
                     Data.faker.job().position(),
                     Data.englishFaker.internet().emailAddress(),
