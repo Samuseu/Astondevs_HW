@@ -14,27 +14,27 @@ public class Dog extends Animal implements AnimalsMethods {
 
     @Override
     public void run(int distance) {
-        if (distance<0){
-            System.out.println("Отрицательное значение для бега: " + name);
+        if (distance < 0) {
+            System.out.println("Отрицательное значение для бега: " + getName());
             return;
         }
-        if (distance <= runObstacle) {
-            System.out.println(name + " пробежал " + distance + " м");
+        if (distance <= getRunObstacle()) {
+            System.out.println(getName() + " пробежал " + distance + " м");
         } else {
-            System.out.println(name + " устал");
+            System.out.println(getName() + " устал");
         }
     }
 
     @Override
     public void swim(int distance) {
-        if (distance<0){
-            System.out.println("Отрицательное значение для плавания: " + name);
+        if (distance < 0) {
+            System.out.println("Отрицательное значение для плавания: " + getName());
             return;
         }
-        if(distance<=swimObstacle){
-            System.out.println(name + " проплыл " + distance + " м");
-        }else {
-            System.out.println(name + " устал");
+        if (distance <= getSwimObstacle()) {
+            System.out.println(getName() + " проплыл " + distance + " м");
+        } else {
+            System.out.println(getName() + " устал");
         }
     }
 }

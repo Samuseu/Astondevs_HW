@@ -27,34 +27,34 @@ public class Cat extends Animal implements AnimalsMethods {
         if (plate.getFood() >= getAppetite()) {
             plate.reductionFood(appetite);
             satiety = true;
-            System.out.println("Кот " + name + " покушал,его аппетит " + getAppetite());
+            System.out.println("Кот " + getName() + " покушал,его аппетит " + getAppetite());
         } else {
             satiety = false;
-            System.out.println("Кот " + name + " не покушал, не хватило еды в тарелке.");
+            System.out.println("Кот " + getName() + " не покушал, не хватило еды в тарелке.");
         }
     }
 
     @Override
     public void run(int distance) {
         if (distance < 0) {
-            System.out.println("Отрицательное значение для бега: " + name);
+            System.out.println("Отрицательное значение для бега: " + getName());
             return;
         }
-        if (distance <= runObstacle) {
-            System.out.println(name + " пробежал " + distance + " м");
+        if (distance <= getRunObstacle()) {
+            System.out.println(getName() + " пробежал " + distance + " м");
         } else {
-            System.out.println(name + " устал");
+            System.out.println(getName() + " устал");
         }
     }
 
     @Override
     public void swim(int distance) {
         if (distance < 0) {
-            System.out.println("Отрицательное значение для плавания: " + name);
+            System.out.println("Отрицательное значение для плавания: " + getName());
             return;
         }
-        if (swimObstacle == 0) {
-            System.out.println(name + " не умеет плавать");
+        if (getSwimObstacle() == 0) {
+            System.out.println(getName() + " не умеет плавать");
         }
     }
 }

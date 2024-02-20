@@ -1,11 +1,11 @@
 package ru.astondevs.lesson5.task1;
 
 public abstract class Animal implements AnimalsMethods {
-    public static int animalCount;
-    public String name;
-    public int age;
-    public int runObstacle;
-    public int swimObstacle;
+    private static int animalCount;
+    private String name;
+    private int age;
+    private int runObstacle;
+    private int swimObstacle;
 
     public Animal(String name, int age, int runObstacle, int swimObstacle) {
         this.name = name;
@@ -15,13 +15,24 @@ public abstract class Animal implements AnimalsMethods {
         animalCount++;
     }
 
-    public  static int getAnimalCount() {
+    public static int getAnimalCount() {
         return animalCount;
     }
 
-    @Override
-    public abstract void  run(int distance);
+    public String getName() {
+        return this.name;
+    }
 
+    public int getRunObstacle() {
+        return runObstacle;
+    }
+
+    public int getSwimObstacle() {
+        return swimObstacle;
+    }
+
+    @Override
+    public abstract void run(int distance);
 
 
     @Override

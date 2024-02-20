@@ -16,7 +16,7 @@ public class Plate {
     }
 
     public void reductionFood(int amount) {
-        if (getFood() >= amount){
+        if (getFood() >= amount) {
             food -= amount;
         }
 

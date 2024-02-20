@@ -42,9 +42,9 @@ public class Result {
         System.out.println();
 
         Cat[] cats = {cat1, cat2, cat3, cat4};
-        Plate plate2 = new Plate(100);
+        plate1.setFood(100);
         for (int i = 0; i < cats.length; i++) {
-            cats[i].eat(plate2);
+            cats[i].eat(plate1);
             System.out.println(cats[i].isSatiety());
         }
     }
