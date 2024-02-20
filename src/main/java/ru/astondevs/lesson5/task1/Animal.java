@@ -1,6 +1,6 @@
 package ru.astondevs.lesson5.task1;
 
-public class Animal implements AnimalsMethods {
+public abstract class Animal implements AnimalsMethods {
     public static int animalCount;
     public String name;
     public int age;
@@ -15,27 +15,17 @@ public class Animal implements AnimalsMethods {
         animalCount++;
     }
 
-    public static int getAnimalCount() {
+    public  static int getAnimalCount() {
         return animalCount;
     }
 
     @Override
-    public void run(int distance) {
-        if(distance<=runObstacle){
-            System.out.println(name + " пробежал " + distance + " м");
-        }else {
-            System.out.println(name + " устал");
-        }
-    }
+    public abstract void  run(int distance);
+
+
 
     @Override
-    public void swim(int distance) {
-        if(distance<=swimObstacle){
-            System.out.println(name + " пробежал " + distance + " м");
-        }else {
-            System.out.println(name + " устал");
-        }
-    }
+    public abstract void swim(int distance);
 
     @Override
     public String toString() {
