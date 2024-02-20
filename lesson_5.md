@@ -19,7 +19,17 @@
 
 #### **Выполнение**
 
-![This image](images/lesson_5/lesson_5_1.png) ![This image](images/lesson_5/lesson_5_2.png) ![This image](images/lesson_5/lesson_5_3.png) ![This image](images/lesson_5/lesson_5_4.png) ![This image](images/lesson_5/lesson_5_5.png) ![This image](images/lesson_5/lesson_5_6.png)
+![This image](images/lesson_5/lesson_5_1.png) 
+
+![This image](images/lesson_5/lesson_5_2.png) 
+
+![This image](images/lesson_5/lesson_5_3.png) 
+
+![This image](images/lesson_5/lesson_5_4.png) 
+
+![This image](images/lesson_5/lesson_5_5.png) 
+
+![This image](images/lesson_5/lesson_5_6.png)
 
 #### **Результат**
 
