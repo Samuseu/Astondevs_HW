@@ -42,27 +42,26 @@
    
 **Задать для каждой фигуры цвет заливки и цвет границы.
    Результат полученных характеристик [ Периметр, площадь, цвет фона, цвет границ ] по каждой
-   фигуре вывести в консоль.
-   Попробуйте реализовать базовые методы, такие как расчет периметра фигур, в качестве
-   дефолтных методов в интерфейсе.**
+   фигуре вывести в консоль.**
+   
 
 #### **Выполнение**
 
-![This image](images/lesson_4/lesson_4_5.png) ![This image](images/lesson_4/lesson_4_6.png)
+![This image](images/lesson_5/lesson_5_8.png)
+
+![This image](images/lesson_5/lesson_5_9.png)
+
+![This image](images/lesson_5/lesson_5_10.png)
+
+![This image](images/lesson_5/lesson_5_11.png)
+
+**Попробуйте реализовать базовые методы, такие как расчет периметра фигур, в качестве
+дефолтных методов в интерфейсе.**
+![This image](images/lesson_5/lesson_5_12.png)
 
 #### **Результат**
 
-![This image](images/lesson_4/lesson_4_7.png)
+![This image](images/lesson_5/lesson_5_13.png)
 
-3. **Создать класс Park с внутренним классом, с помощью объектов которого можно хранить информацию об аттракционах,
-   времени их работы и стоимости.**
+![This image](images/lesson_5/lesson_5_14.png)
 
-#### **Выполнение**
-
-![This image](images/lesson_4/lesson_4_8.png) ![This image](images/lesson_4/lesson_4_9.png) ![This image](images/lesson_4/lesson_4_10.png)
-
-#### **Результат**
-
-![This image](images/lesson_4/lesson_4_11.png)
-
-> ### Вот тут другие реализации данного задания -> [MoreOptions](src/main/java/ru/astondevs/lesson4/moreoptions)
