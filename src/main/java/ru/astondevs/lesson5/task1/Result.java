@@ -2,7 +2,7 @@ package ru.astondevs.lesson5.task1;
 
 public class Result {
     public static void main(String[] args) {
-        Dog dog1 = new Dog("Бобик", 2);
+        Dog dog1 = new Dog("Вок", 2);
         Dog dog2 = new Dog("Рекс", 3);
         Cat cat1 = new Cat("Валик", 1, 20);
         Cat cat2 = new Cat("Бакс", 3, 40);
