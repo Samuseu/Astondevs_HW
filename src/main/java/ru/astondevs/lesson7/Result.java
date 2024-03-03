@@ -13,7 +13,7 @@ public class Result {
             int correctArray = correctArray(array);
             System.out.println("Cумма элементов массива " + correctArray);
         } catch (MyArraySizeException | MyArrayDataException e) {
-            System.out.println("Ошибка" + e.getMessage());
+            System.out.println("Ошибка: " + e.getMessage());
         }
     }
 
@@ -21,12 +21,12 @@ public class Result {
         int size = 4;
 
         if (array.length != size) {
-            throw new MyArraySizeException("Не правильный формат массива, нужен 4х4");
+            throw new MyArraySizeException("Неправильный формат массива, нужен 4х4");
         }
 
         for (String[] column : array) {
             if (column.length != size) {
-                throw new MyArraySizeException("Не правильный формат массива, нужен 4х4");
+                throw new MyArraySizeException("Неправильный формат массива, нужен 4х4");
             }
         }
 
