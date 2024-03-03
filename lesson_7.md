@@ -29,6 +29,6 @@
 
 ![This image](images/lesson_7/lesson_7_6.png)
 
-> ### Вот тут другие реализации данного задания -> [MoreOptions](src/main/java/ru/astondevs/lesson7/moreoptions)
+> ### Вот тут другая реализация данного задания -> [MoreOptions](src/main/java/ru/astondevs/lesson7/moreoptions)
 
 ![This image](images/lesson_7/lesson_7_7.png)
