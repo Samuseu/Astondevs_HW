@@ -7,23 +7,24 @@ public class Result {
     public static void main(String[] args) {
         String[] words = {"Максим", "Влад", "Анна", "Лидия", "Максим", "Лидия", "Влад", "Антон", "Паша"};
 
-        Map<String, Integer> wordCount = new HashMap<>();
+        System.out.println("\nПервоначальный массив: " + Arrays.toString(words));
 
-        for (String word : words) {
-            int count = wordCount.getOrDefault(word, 0) + 1;
-            wordCount.put(word, count);
-        }
+        Set<String> uniqueWords = new HashSet<>(Arrays.asList(words));
 
-        Set<String> wordsUnique = new HashSet<>();
-        for (String word : wordCount.keySet()) {
-            if (wordCount.get(word) == 1) {
-                wordsUnique.add(word);
-            }
-        }
-
-        System.out.println("Уникальные слова:");
-        for (String word : wordsUnique) {
+        System.out.println("\nУникальные слова:");
+        for (String word : uniqueWords) {
             System.out.println(word);
+        }
+
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : uniqueWords) {
+            int count = 0;
+            for (String w : words) {
+                if (word.equals(w)) {
+                    count++;
+                }
+            }
+            wordCount.put(word, count);
         }
 
         System.out.println("\nКоличество повторений:");
