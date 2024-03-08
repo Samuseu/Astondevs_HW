@@ -1,7 +1,5 @@
 package ru.astondevs.lesson8.task2;
 
-import java.util.Arrays;
-
 public class Result {
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();

@@ -25,10 +25,13 @@
    (в случае однофамильцев), тогда при запросе такой фамилии должны выводиться все телефоны.**
 
 #### **Выполнение**
-
+![This image](images/lesson_8/lesson_8_3.png)
+![This image](images/lesson_8/lesson_8_4.png)
+![This image](images/lesson_8/lesson_8_5.png)
 
 
 #### **Результат**
+![This image](images/lesson_8/lesson_8_6.png)
+![This image](images/lesson_8/lesson_8_7.png)
 
-![This image](images/lesson_7/lesson_7_5.png)
 
