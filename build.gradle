@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:2.0.9' // зависимость от SLF4J API
+    implementation 'ch.qos.logback:logback-classic:1.4.14' // зависимость от Logback (реализация SLF4J)
+    implementation 'org.seleniumhq.selenium:selenium-java:4.18.1'//  добавление библиотек Selenium WebDriver
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.10.2' // добавление junit 5
+    implementation 'com.github.javafaker:javafaker:1.0.2' // faker
+}
+
+test {
+    useJUnitPlatform {}
+}
