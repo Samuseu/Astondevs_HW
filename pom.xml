@@ -36,6 +36,14 @@
             <artifactId>selenium-java</artifactId>
             <version>4.18.1</version>
         </dependency>
-
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>my-local-repo</id>
+            <name>Local Repository</name>
+            <url>file:///C:/Users/s67/IdeaProjects/Astondevs_HW/target/repository</url>
+        </repository>
+    </distributionManagement>
+
 </project>
