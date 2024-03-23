@@ -22,12 +22,10 @@ public class FactorialTests {
         Assert.assertEquals(Factorial.factorial(input), expected);
     }
 
-
     @Test
     public void testFactorialOfZero() {
         Assert.assertEquals(Factorial.factorial(0), 1);
     }
-
 
 
     @DataProvider(name = "negativeNumbers")
