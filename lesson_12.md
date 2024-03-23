@@ -5,12 +5,21 @@
 
 ## Практическое задание
 
-1. **Создайте две ветки: Lesson_11_maven и Lesson_11_gradle.**
-   **В ветке Lesson_11_maven создайте проект, используя Maven с архетипом quickstart.**
-   **В ветке Lesson_11_gradle создайте проект, используя Gradle.**
-   **В каждый проект добавьте зависимости на такие инструменты как JUnit 5, Selenium.**
+1. **Создайте 2 ветки: Lesson_12_junit_5 и Lesson_12_testng.**
+
+- **Напишите программу, позволяющую вычислить факториал числа.**
+
+- **Эта программа должна быть в каждой ветке.**
+
+- **В ветке Lesson_12_junit_5 напишите юнит-тесты для этой программы, используя Junit 5.**
+
+- **В ветке Lesson_12_testng напишите юнит-тесты, используя TestNG.**
 
 #### **Выполнение**
 
-![This image](images/lesson_11/lesson_11_1.png)
-![This image](images/lesson_11/lesson_11_2.png)
+![This image](images/lesson_12/lesson_12_1.png)
+![This image](images/lesson_12/lesson_12_2.png)
+
+
+#### **Результат**
+![This image](images/lesson_12/lesson_12_3.png)
