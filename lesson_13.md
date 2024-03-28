@@ -13,9 +13,13 @@
 
 #### **Выполнение**
 
-![This image](images/lesson_12/lesson_12_1.png)
+![This image](images/lesson_13/lesson_13_1.png)
+![This image](images/lesson_13/lesson_13_2.png)
+![This image](images/lesson_13/lesson_13_3.png)
+![This image](images/lesson_13/lesson_13_4.png)
 
 
 
 #### **Результат**
-![This image](images/lesson_12/lesson_12_3.png)
+
+![This image](images/lesson_13/lesson_13_5.png)
