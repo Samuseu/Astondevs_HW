@@ -119,6 +119,7 @@ public class MtsPage {
         WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
         driver.switchTo().frame(iframe);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'BYN')]")));
         return element.getText();
     }
@@ -127,6 +128,7 @@ public class MtsPage {
         WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
         driver.switchTo().frame(iframe);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.colored.disabled")));
         return element.getText();
     }
@@ -135,6 +137,7 @@ public class MtsPage {
         WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
         driver.switchTo().frame(iframe);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.header__payment-info")));
         return element.getText();
     }
@@ -143,7 +146,9 @@ public class MtsPage {
         WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
         driver.switchTo().frame(iframe);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@formcontrolname='" + formControlName + "']" + "/following-sibling::label")));
+
         assertTrue(inputField.getText().contains(expectedLabel));
         return this;
     }
@@ -152,8 +157,8 @@ public class MtsPage {
         WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
         driver.switchTo().frame(iframe);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement cardsBrandsContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("cards-brands__container")));
 
+        WebElement cardsBrandsContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("cards-brands__container")));
         List<WebElement> paymentIcons = cardsBrandsContainer.findElements(By.tagName("img"));
 
         Assertions.assertEquals(5, paymentIcons.size());
