@@ -167,8 +167,6 @@ public class MtsPage {
             wait.until(ExpectedConditions.visibilityOf(icon));
             Assertions.assertTrue(icon.isDisplayed());
         }
-
-
         return this;
     }
 
