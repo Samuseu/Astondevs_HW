@@ -1,134 +1,123 @@
 package ru.astondevs.lesson15;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WildberriesTests extends TestBase {
-
-    @DisplayName("Проверка названия блока")
     @Test
-    void checkNameBlock() {
-        mtsPage.baseUrl()
-                .buttonAgree();
-        String logoText = mtsPage.getLogoText();
-        Assertions.assertEquals("Онлайн пополнение\n" +
-                "без комиссии", logoText);
+    public void testAddToCart() throws InterruptedException {
+        driver.get("https://www.wildberries.ru/");
+        List<WebElement> products = driver.findElements(By.cssSelector(".product-card"));
+        List<String> expectedProductNames = new ArrayList<>();
+        List<String> expectedProductPrice = new ArrayList<>();
+
+        products.get(2).click();
+        addProductToCart();
+        expectedProductNames.add(getExpectedTittleText());
+        expectedProductPrice.add(getExpectedPrice());
+        Thread.sleep(1000);
+        navigateBack();
+
+        products.get(4).click();
+        addProductToCart();
+        expectedProductNames.add(getExpectedTittleText());
+        expectedProductPrice.add(getExpectedPrice());
+        Thread.sleep(1000);
+        navigateBack();
+
+        products.get(6).click();
+        addProductToCart();
+        expectedProductNames.add(getExpectedTittleText());
+        expectedProductPrice.add(getExpectedPrice());
+        Thread.sleep(1000);
+        navigateBack();
+
+        openCartForCheck();
+
+        List<String> actualProductNames = getProductNames();
+
+        Collections.sort(actualProductNames);
+        Collections.sort(expectedProductNames);
+
+        Assertions.assertIterableEquals(expectedProductNames, actualProductNames);
+
+        List<String> actualProductPrice = getProductPrice();
+
+
+        System.out.println("Ожидаемые цены товаров:");
+        for (String price : expectedProductPrice) {
+            System.out.println(price);
+        }
+
+        System.out.println("Фактические цены товаров:");
+        for (String price : actualProductPrice) {
+            System.out.println(price);
+        }
+
     }
 
-    @DisplayName("Проверка логотипа")
-    @Test
-    void checkLogo() {
-        mtsPage.baseUrl()
-                .buttonAgree();
-        List<WebElement> listLogo = driver.findElements(By.cssSelector(" .pay__partners ul li"));
-        for (WebElement logo : listLogo) {
-            Assertions.assertTrue(logo.isDisplayed(), "Логотип не отобразился : " + logo.getAttribute("alt"));
+    private String getExpectedTittleText(){
+        WebElement titleText = driver.findElement(By.cssSelector(".product-page__title"));
+        return titleText.getText();
+    }
+    private String getExpectedPrice(){
+        WebElement priceText = driver.findElement(By.cssSelector(".price-block__wallet-price"));
+        return priceText.getText();
+    }
+    private void addProductToCart() {
+        WebElement addToCartButton1 = driver.findElement(By.xpath("(//button[@class='btn-main'])[1]"));
+        WebElement addToCartButton2 = driver.findElement(By.xpath("(//button[@class='btn-main'])[2]"));
+
+        try {
+            addToCartButton1.click();
+        } catch (Exception e) {
+            addToCartButton2.click();
+        }
+        try {
+            WebElement sizeDialog = driver.findElement(By.cssSelector(".popup-list-of-sizes.shown"));
+            if (sizeDialog.isDisplayed()) {
+                WebElement firstSizeOption = sizeDialog.findElement(By.cssSelector(".sizes-list__item"));
+                firstSizeOption.click();
+            }
+        } catch (NoSuchElementException ignored) {
         }
     }
 
-    @DisplayName("Проверка работы ссылки")
-    @Test
-    void checkWorkLink() {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .checkLink();
-        String title = mtsPage.getTitle();
-        Assertions.assertEquals("Порядок оплаты и безопасность интернет платежей", title);
+    private void navigateBack() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.history.back()");
     }
 
-    @DisplayName("Проверка работы кнопки")
-    @Test
-    void checkWorkButton() {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .setValue("297777777", "150", "example@mail.com");
+    private void openCartForCheck() {
+        WebElement element = driver.findElement(By.cssSelector(".navbar-pc__icon--basket"));
+        element.click();
+    }
+    public List<String> getProductNames() {
+        List<WebElement> productElements = driver.findElements(By.cssSelector(".good-info__good-name"));
+        List<String> productNames = new ArrayList<>();
 
-        String actualText = mtsPage.getText();
-        Assertions.assertEquals("Безопасная оплата обеспечивается", actualText);
-        mtsPage.switchToDefaultContent();
+        for (WebElement productElement : productElements) {
+            productNames.add(productElement.getText());
+        }
+        return productNames;
     }
 
-    @DisplayName("Проверка надписей в незаполенных полях")
-    @ParameterizedTest(name = "У {0} должны присутствовать элементы: {1},{2},{3},")
-    @CsvSource({
-            "Услуги связи, Номер телефона, Сумма, E-mail для отправки чека",
-            "Домашний интернет, Номер абонента, Сумма, E-mail для отправки чека",
-            "Рассрочка, Номер счета на 44, Сумма, E-mail для отправки чека",
-            "Задолженность, Номер счета на 2073, Сумма, E-mail для отправки чека"
+    public List<String> getProductPrice(){
+        List<WebElement> productPriceElements = driver.findElements(By.cssSelector(".list-item__price-wallet"));
+        List<String> productPrice = new ArrayList<>();
 
-    })
-    void checkNotationsInBlankFields(String select, String number, String sum, String email) {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .clickButtonHeader()
-                .selectService(select)
-                .checkFields(select, number, sum, email);
-    }
-
-    @DisplayName("Проверка корректного отображение суммы")
-    @Test
-    void checkAmountDisplayedCorrectly() {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .setValue("297777777", "150", "example@mail.com");
-        String actualText = mtsPage.getTextSum();
-        Assertions.assertEquals("150.00 BYN", actualText);
-        mtsPage.switchToDefaultContent();
-    }
-
-
-    @DisplayName("Проверка корректного отображение суммы на кнопке")
-    @Test
-    void checkAmountOnButtonDisplayedCorrectly() {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .setValue("297777777", "150", "example@mail.com");
-        String actualText = mtsPage.getTextSumButton();
-        Assertions.assertEquals("Оплатить 150.00 BYN", actualText);
-        mtsPage.switchToDefaultContent();
-    }
-
-    @DisplayName(value = "Проверка корректного отображение номера телефона")
-    @Test
-    void checkPhoneNumberDisplayedCorrectly() {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .setValue("297777777", "150", "example@mail.com");
-        String actualText = mtsPage.getTextPhoneNumber();
-        Assertions.assertEquals("Оплата: Услуги связи Номер:375297777777", actualText);
-        mtsPage.switchToDefaultContent();
-    }
-
-    @DisplayName(value = "Проверка корректного отображения незаполненных полей")
-    @ParameterizedTest(name = "Корректно отображается ({0}) ")
-    @CsvSource({
-            "Номер карты, creditCard",
-            "Срок действия, expirationDate",
-            "CVC, cvc",
-            "Имя держателя (как на карте), holder"
-    })
-    void cardDetailsCheck(String expectedLabel, String formControlName) {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .setValue("297777777", "150", "example@mail.com")
-                .checkFieldsCardDetail(expectedLabel, formControlName);
-        mtsPage.switchToDefaultContent();
-    }
-
-    @DisplayName(value = "Проверка наличие иконок платежных систем")
-    @Test
-    void checkIconsPaymentsSystem() {
-        mtsPage.baseUrl()
-                .buttonAgree()
-                .setValue("297777777", "150", "example@mail.com")
-                .checkIconsVisibility();
+        for (WebElement productElement : productPriceElements) {
+            productPrice.add(productElement.getText());
+        }
+        return productPrice;
     }
 }
 

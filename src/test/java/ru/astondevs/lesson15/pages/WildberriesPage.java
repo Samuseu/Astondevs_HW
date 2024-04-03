@@ -22,7 +22,7 @@ public class WildberriesPage {
         this.driver = driver;
     }
 
-    private final String BASE_URL = "https://www.mts.by/";
+    private final String BASE_URL = "https://www.wildberries.ru/";
 
     @FindBy(css = "#cookie-agree")
     private WebElement buttonAgree;

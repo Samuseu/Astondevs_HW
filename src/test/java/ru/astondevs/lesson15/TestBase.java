@@ -11,7 +11,7 @@ import ru.astondevs.lesson15.pages.WildberriesPage;
 import java.time.Duration;
 
 public class TestBase {
-    protected WildberriesPage mtsPage;
+    protected WildberriesPage WildberriesPage;
     protected WebDriver driver;
 
     @BeforeEach
@@ -20,7 +20,7 @@ public class TestBase {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        mtsPage = PageFactory.initElements(driver, WildberriesPage.class);
+        WildberriesPage = PageFactory.initElements(driver, WildberriesPage.class);
     }
 
     @AfterEach
