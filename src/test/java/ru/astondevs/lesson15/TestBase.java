@@ -5,27 +5,25 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import ru.astondevs.lesson15.pages.WildberriesPage;
 
 import java.time.Duration;
 
 public class TestBase {
-    protected WildberriesPage WildberriesPage;
+    protected WildberriesPage wildberriesPage;
     protected WebDriver driver;
 
     @BeforeEach
-    public void setUP() {
+    public void setUp() {
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        WildberriesPage = PageFactory.initElements(driver, WildberriesPage.class);
+        wildberriesPage = new WildberriesPage(driver);
     }
 
     @AfterEach
     void tearDown() {
-        driver.close();
         driver.quit();
     }
 }

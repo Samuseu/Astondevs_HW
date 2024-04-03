@@ -6,7 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,14 +22,7 @@ public class WildberriesTests extends TestBase {
         List<String> expectedProductNames = new ArrayList<>();
         List<String> expectedProductPrice = new ArrayList<>();
 
-        products.get(2).click();
-        addProductToCart();
-        expectedProductNames.add(getExpectedTittleText());
-        expectedProductPrice.add(getExpectedPrice());
-        Thread.sleep(1000);
-        navigateBack();
-
-        products.get(4).click();
+        products.get(3).click();
         addProductToCart();
         expectedProductNames.add(getExpectedTittleText());
         expectedProductPrice.add(getExpectedPrice());
@@ -34,6 +30,13 @@ public class WildberriesTests extends TestBase {
         navigateBack();
 
         products.get(6).click();
+        addProductToCart();
+        expectedProductNames.add(getExpectedTittleText());
+        expectedProductPrice.add(getExpectedPrice());
+        Thread.sleep(1000);
+        navigateBack();
+
+        products.get(9).click();
         addProductToCart();
         expectedProductNames.add(getExpectedTittleText());
         expectedProductPrice.add(getExpectedPrice());
@@ -49,8 +52,10 @@ public class WildberriesTests extends TestBase {
 
         Assertions.assertIterableEquals(expectedProductNames, actualProductNames);
 
-        List<String> actualProductPrice = getProductPrice();
 
+        List<String> actualProductPrice = getProductPrice();
+        Collections.sort(actualProductPrice);
+        Collections.sort(expectedProductPrice);
 
         System.out.println("Ожидаемые цены товаров:");
         for (String price : expectedProductPrice) {
@@ -62,16 +67,37 @@ public class WildberriesTests extends TestBase {
             System.out.println(price);
         }
 
+        Assertions.assertIterableEquals(expectedProductPrice, actualProductPrice);
+
+
+
+        String totalPriceString = driver.findElement(By.cssSelector("p.b-top__total.line span[data-link*='basketPriceWithCurrencyV2']"))
+                .getText()
+                .replaceAll("[^\\d]", "");
+        Long actualTotalPrice = Long.parseLong(totalPriceString);
+
+        Assertions.assertEquals(getTotalProductPrice(), actualTotalPrice);
+
+
     }
 
-    private String getExpectedTittleText(){
+    public long getTotalProductPrice() throws InterruptedException {
+        List<String> productPrices = getProductPrice();
+
+        return productPrices.stream()
+                .mapToLong(price -> Long.parseLong(price.replaceAll("[^\\d]", "")))
+                .sum();
+    }
+    private String getExpectedTittleText() {
         WebElement titleText = driver.findElement(By.cssSelector(".product-page__title"));
         return titleText.getText();
     }
-    private String getExpectedPrice(){
-        WebElement priceText = driver.findElement(By.cssSelector(".price-block__wallet-price"));
+
+    private String getExpectedPrice() {
+        WebElement priceText = driver.findElement(By.cssSelector(".price-block__final-price.wallet"));
         return priceText.getText();
     }
+
     private void addProductToCart() {
         WebElement addToCartButton1 = driver.findElement(By.xpath("(//button[@class='btn-main'])[1]"));
         WebElement addToCartButton2 = driver.findElement(By.xpath("(//button[@class='btn-main'])[2]"));
@@ -100,6 +126,7 @@ public class WildberriesTests extends TestBase {
         WebElement element = driver.findElement(By.cssSelector(".navbar-pc__icon--basket"));
         element.click();
     }
+
     public List<String> getProductNames() {
         List<WebElement> productElements = driver.findElements(By.cssSelector(".good-info__good-name"));
         List<String> productNames = new ArrayList<>();
@@ -110,10 +137,13 @@ public class WildberriesTests extends TestBase {
         return productNames;
     }
 
-    public List<String> getProductPrice(){
-        List<WebElement> productPriceElements = driver.findElements(By.cssSelector(".list-item__price-wallet"));
-        List<String> productPrice = new ArrayList<>();
+    public List<String> getProductPrice() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Thread.sleep(10000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".list-item__price-new.wallet")));
 
+        List<WebElement> productPriceElements = driver.findElements(By.cssSelector(".list-item__price-new.wallet"));
+        List<String> productPrice = new ArrayList<>();
         for (WebElement productElement : productPriceElements) {
             productPrice.add(productElement.getText());
         }
