@@ -13,7 +13,8 @@
 При написании автотестов необходимо использовать
 подходящие паттерны, изученные в данной теме.**
 
-
+#### **Пример видеозаписи прохождения теста**
+![This image](images/lesson_15/lesson_15_6.gif)
 
 #### **Выполнение**
 
@@ -22,9 +23,6 @@
 ![This image](images/lesson_15/lesson_15_3.png)
 ![This image](images/lesson_15/lesson_15_4.png)
 ![This image](images/lesson_15/lesson_15_5.png)
-
-#### **Пример видеозаписи прохождения теста**
-![This image](images/lesson_15/lesson_15_6.gif)
 
 #### **Результат**
 ![This image](images/lesson_15/lesson_15_7.png)
