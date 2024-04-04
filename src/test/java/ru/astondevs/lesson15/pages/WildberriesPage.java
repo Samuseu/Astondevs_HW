@@ -1,11 +1,13 @@
 package ru.astondevs.lesson15.pages;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -24,13 +26,46 @@ public class WildberriesPage {
         return this;
     }
 
+    public WildberriesPage selectThreeRandomProducts(List<String> expectedProductNames, List<String> expectedProductPrice) {
+        for (int i = 0; i < 3; i++) {
+            int randomIndex = generateRandomNumber(1, 28);
+            selectProduct(randomIndex)
+                    .addProductToCart();
+            expectedProductNames.add(getExpectedTittleText());
+            expectedProductPrice.add(getExpectedPrice());
+            navigateBack();
+        }
+        return this;
+    }
+
+    public void verifyProductNames(List<String> expectedProductNames, List<String> actualProductNames) {
+        Collections.sort(actualProductNames);
+        Collections.sort(expectedProductNames);
+        Assertions.assertIterableEquals(expectedProductNames, actualProductNames);
+    }
+
+    public void verifyProductPrice(List<String> expectedProductPrice, List<String> actualProductPrice) {
+        Collections.sort(actualProductPrice);
+        Collections.sort(expectedProductPrice);
+        Assertions.assertIterableEquals(expectedProductPrice, actualProductPrice);
+    }
+
+    public void verifyTotalPrice() throws InterruptedException {
+        Assertions.assertEquals(getTotalProductPrice(), getActualTotalPrice());
+    }
+
+    public void verifyItemCount(int expectedItemCount) {
+        int actualItemCount = getNumberOfItems();
+        Assertions.assertEquals(expectedItemCount, actualItemCount);
+    }
+
     public WildberriesPage acceptCookies() {
         WebElement agreeCookies = driver.findElement(By.cssSelector(".cookies__btn.btn-minor-md"));
         agreeCookies.click();
         return this;
     }
 
-    public int getNumberOfItems(){
+    public int getNumberOfItems() {
         List<WebElement> inputElements = driver.findElements(By.xpath("//input[@type='number']"));
         int totalItems = 0;
         for (WebElement inputElement : inputElements) {
