@@ -15,6 +15,7 @@ public class WildberriesTests extends TestBase {
 
         wildberriesPage.baseUrl()
                 .acceptCookies();
+
         for (int i = 0; i < 3; i++) {
             int randomIndex = wildberriesPage.generateRandomNumber(1, 28);
             wildberriesPage.selectProduct(randomIndex)
@@ -37,6 +38,10 @@ public class WildberriesTests extends TestBase {
         Assertions.assertIterableEquals(expectedProductPrice, actualProductPrice);
 
         Assertions.assertEquals(wildberriesPage.getTotalProductPrice(), wildberriesPage.getActualTotalPrice());
+
+        int expectedItemCount = 3;
+        int actualItemCount =wildberriesPage.getNumberOfItems();
+        Assertions.assertEquals(expectedItemCount, actualItemCount);
     }
 }
 

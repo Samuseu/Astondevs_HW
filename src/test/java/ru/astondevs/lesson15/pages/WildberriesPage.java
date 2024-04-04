@@ -30,6 +30,15 @@ public class WildberriesPage {
         return this;
     }
 
+    public int getNumberOfItems(){
+        List<WebElement> inputElements = driver.findElements(By.xpath("//input[@type='number']"));
+        int totalItems = 0;
+        for (WebElement inputElement : inputElements) {
+            totalItems += Integer.parseInt(inputElement.getAttribute("value"));
+        }
+        return totalItems;
+    }
+
     public int generateRandomNumber(int min, int max) {
         Random random = new Random();
         return random.nextInt(max - min + 1) + min;
@@ -86,7 +95,7 @@ public class WildberriesPage {
 
     public List<String> getProductPrice() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        Thread.sleep(5000);
+        Thread.sleep(9000);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".list-item__price-new.wallet")));
 
         List<WebElement> productPriceElements = driver.findElements(By.cssSelector(".list-item__price-new.wallet"));
