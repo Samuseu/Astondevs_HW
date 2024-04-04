@@ -17,10 +17,14 @@
 
 #### **Выполнение**
 
-![This image](images/lesson_14/lesson_14_1.png)
+![This image](images/lesson_15/lesson_15_1.png)
+![This image](images/lesson_15/lesson_15_2.png)
+![This image](images/lesson_15/lesson_15_3.png)
+![This image](images/lesson_15/lesson_15_4.png)
+![This image](images/lesson_15/lesson_15_5.png)
 
-
+#### **Пример видеозаписи прохождения теста**
+![This image](images/lesson_15/lesson_15_6.gif)
 
 #### **Результат**
-
-![This image](images/lesson_14/lesson_14_6.png)
+![This image](images/lesson_15/lesson_15_7.png)
