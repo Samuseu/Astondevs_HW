@@ -1,22 +1,17 @@
 package ru.astondevs.lesson15.pages;
 
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Random;
 
 public class WildberriesPage {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public WildberriesPage(WebDriver driver) {
         this.driver = driver;
@@ -24,155 +19,105 @@ public class WildberriesPage {
 
     private final String BASE_URL = "https://www.wildberries.ru/";
 
-    @FindBy(css = "#cookie-agree")
-    private WebElement buttonAgree;
-
-    @FindBy(css = ".pay__wrapper h2")
-    private WebElement logoText;
-
-    @FindBy(xpath = "//a[text()='Подробнее о сервисе']")
-    private WebElement serviceLink;
-
-    @FindBy(xpath = "//div[@class='pay__forms']/form[@id='pay-connection']//button[text()='Продолжить']")
-    private WebElement button;
-
-    @FindBy(id = "connection-phone")
-    private WebElement phoneNumber;
-
-    @FindBy(id = "connection-sum")
-    private WebElement amount;
-
-    @FindBy(id = "connection-email")
-    private WebElement email;
-
-    @FindBy(css = ".select__header")
-    private WebElement buttonHeader;
-
     public WildberriesPage baseUrl() {
         driver.get(BASE_URL);
         return this;
     }
 
-    public WildberriesPage buttonAgree() {
-        if (buttonAgree.isDisplayed()) {
-            buttonAgree.click();
+    public WildberriesPage acceptCookies() {
+        WebElement agreeCookies = driver.findElement(By.cssSelector(".cookies__btn.btn-minor-md"));
+        agreeCookies.click();
+        return this;
+    }
+
+    public int generateRandomNumber(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
+    }
+
+    public WildberriesPage selectProduct(int index) {
+        List<WebElement> products = driver.findElements(By.cssSelector(".product-card"));
+        products.get(index).click();
+        return this;
+    }
+
+    public WildberriesPage addProductToCart() {
+        WebElement addToCartButton1 = driver.findElement(By.xpath("(//button[@class='btn-main'])[1]"));
+        WebElement addToCartButton2 = driver.findElement(By.xpath("(//button[@class='btn-main'])[2]"));
+
+        try {
+            addToCartButton1.click();
+        } catch (Exception e) {
+            addToCartButton2.click();
+        }
+
+        try {
+            WebElement sizeDialog = driver.findElement(By.cssSelector(".popup-list-of-sizes.shown"));
+            if (sizeDialog.isDisplayed()) {
+                WebElement firstSizeOption = sizeDialog.findElement(By.cssSelector(".sizes-list__item"));
+                firstSizeOption.click();
+            }
+        } catch (NoSuchElementException ignored) {
         }
         return this;
     }
 
-    public String getLogoText() {
-        return logoText.getText();
-    }
-
-    public WildberriesPage checkLink() {
-        Assertions.assertNotNull(serviceLink);
-        serviceLink.isDisplayed();
-        serviceLink.click();
+    public WildberriesPage navigateBack() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.history.back()");
         return this;
     }
 
-    public String getTitle() {
-        return driver.getTitle();
-    }
-
-    public WildberriesPage setValue(String phone, String amount, String email) {
-        phoneNumber.sendKeys(phone);
-        this.amount.sendKeys(amount);
-        this.email.sendKeys(email);
-        button.click();
+    public WildberriesPage openCartForCheck() {
+        WebElement element = driver.findElement(By.cssSelector(".navbar-pc__icon--basket"));
+        element.click();
         return this;
     }
 
-    public String getText() {
-        WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
-        driver.switchTo().frame(iframe);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'Безопасная оплата обеспечивается')]")));
-        return element.getText();
-    }
+    public List<String> getProductNames() {
+        List<WebElement> productElements = driver.findElements(By.cssSelector(".good-info__good-name"));
+        List<String> productNames = new ArrayList<>();
 
-    public WildberriesPage clickButtonHeader() {
-        buttonHeader.click();
-        return this;
-    }
-
-    public WildberriesPage selectService(String serviceName) {
-        WebElement selectedOption = driver.findElement(By.xpath("//option[@value='" + serviceName + "']"));
-        selectedOption.click();
-        return this;
-    }
-
-    public WildberriesPage checkFields(String serviceName, String... expectedLabels) {
-        String formId = driver.findElement(By.xpath("//option[@value='" + serviceName + "']"))
-                .getAttribute("data-open");
-
-        List<WebElement> inputFields = driver.findElements(By.cssSelector("#" + formId + " input[type='text']"));
-
-        for (WebElement field : inputFields) {
-            String label = field.getAttribute("placeholder");
-            assertTrue(Arrays.asList(expectedLabels).contains(label));
+        for (WebElement productElement : productElements) {
+            productNames.add(productElement.getText());
         }
-        return this;
+        return productNames;
     }
 
-    public String getTextSum() {
-        WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
-        driver.switchTo().frame(iframe);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), 'BYN')]")));
-        return element.getText();
-    }
-
-    public String getTextSumButton() {
-        WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
-        driver.switchTo().frame(iframe);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.colored.disabled")));
-        return element.getText();
-    }
-
-    public String getTextPhoneNumber() {
-        WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
-        driver.switchTo().frame(iframe);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.header__payment-info")));
-        return element.getText();
-    }
-
-    public WildberriesPage checkFieldsCardDetail(String expectedLabel, String formControlName) {
-        WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
-        driver.switchTo().frame(iframe);
+    public List<String> getProductPrice() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Thread.sleep(5000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".list-item__price-new.wallet")));
 
-        WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@formcontrolname='" + formControlName + "']" + "/following-sibling::label")));
-
-        assertTrue(inputField.getText().contains(expectedLabel));
-        return this;
-    }
-
-    public WildberriesPage checkIconsVisibility() {
-        WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
-        driver.switchTo().frame(iframe);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        WebElement cardsBrandsContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("cards-brands__container")));
-        List<WebElement> paymentIcons = cardsBrandsContainer.findElements(By.tagName("img"));
-
-        Assertions.assertEquals(5, paymentIcons.size());
-
-        for (WebElement icon : paymentIcons) {
-            wait.until(ExpectedConditions.visibilityOf(icon));
-            Assertions.assertTrue(icon.isDisplayed());
+        List<WebElement> productPriceElements = driver.findElements(By.cssSelector(".list-item__price-new.wallet"));
+        List<String> productPrice = new ArrayList<>();
+        for (WebElement productElement : productPriceElements) {
+            productPrice.add(productElement.getText());
         }
-        return this;
+        return productPrice;
     }
 
-    public WildberriesPage switchToDefaultContent() {
-        driver.switchTo().defaultContent();
-        return this;
+    public String getExpectedTittleText() {
+        WebElement titleText = driver.findElement(By.cssSelector(".product-page__title"));
+        return titleText.getText();
+    }
+
+    public String getExpectedPrice() {
+        WebElement priceText = driver.findElement(By.cssSelector(".price-block__final-price.wallet"));
+        return priceText.getText();
+    }
+
+    public long getTotalProductPrice() throws InterruptedException {
+        List<String> productPrices = getProductPrice();
+        return productPrices.stream()
+                .mapToLong(price -> Long.parseLong(price.replaceAll("[^\\d]", "")))
+                .sum();
+    }
+
+    public long getActualTotalPrice() {
+        String totalPriceString = driver.findElement(By.cssSelector("p.b-top__total.line span[data-link*='basketPriceWithCurrencyV2']"))
+                .getText()
+                .replaceAll("[^\\d]", "");
+        return Long.parseLong(totalPriceString);
     }
 }
-
