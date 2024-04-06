@@ -12,12 +12,18 @@ Echo.
 Methods (проверка тела ответа (просто сравнить значения
 всех полей) и кода ответа).**
 
-#### **Пример видеозаписи прохождения теста**
-![This image](images/lesson_16/lesson_16_1.gif)
+#### **Выполнение для метода get**
 
-#### **Выполнение**
+![This image](images/lesson_16/lesson_16_1.png)
+![This image](images/lesson_16/lesson_16_2.png)
+![This image](images/lesson_16/lesson_16_3.png)
 
-![This image](images/lesson_15/lesson_15_1.png)
+#### **Выполнение для метода post**
 
-#### **Результат**
-![This image](images/lesson_15/lesson_15_7.png)
+![This image](images/lesson_16/lesson_16_4.png)
+![This image](images/lesson_16/lesson_16_5.png)
+![This image](images/lesson_16/lesson_16_6.png)
+![This image](images/lesson_16/lesson_16_7.png)
+![This image](images/lesson_16/lesson_16_8.png)
+
+>#### **Остальную реализацию можно посмотреть тут**  [Реализация остальных методов](https://github.com/Samuseu/Astondevs_HW/tree/Lesson_16/src/test/java/ru/astondevs/lesson16/request/methods)

@@ -7,11 +7,11 @@ import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
 
-public class Specs {
+public class SpecsDelete {
     public static RequestSpecification request = with()
             .baseUri("https://postman-echo.com/")
             .log().all()
-            .contentType(ContentType.JSON);
+            .contentType(ContentType.TEXT);
 
     public static ResponseSpecification responseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
