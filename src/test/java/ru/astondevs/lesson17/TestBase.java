@@ -4,13 +4,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import ru.astondevs.lesson17.page.CalculatorPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
 public class TestBase {
+    static CalculatorPage calculatorPage;
     public static AndroidDriver driver;
-
     @BeforeAll
     static void beforeAll() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options();
@@ -20,6 +20,7 @@ public class TestBase {
         options.setAppActivity("com.android.calculator2.Calculator");
         options.setNoReset(true);
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), options);
+        calculatorPage = new CalculatorPage(driver);
     }
 
     @AfterEach
