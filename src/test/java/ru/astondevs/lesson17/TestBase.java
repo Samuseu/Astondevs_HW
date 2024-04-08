@@ -8,9 +8,11 @@ import ru.astondevs.lesson17.page.CalculatorPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
 public class TestBase {
     static CalculatorPage calculatorPage;
     public static AndroidDriver driver;
+
     @BeforeAll
     static void beforeAll() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options();

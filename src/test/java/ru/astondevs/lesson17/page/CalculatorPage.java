@@ -30,6 +30,7 @@ public class CalculatorPage {
         this.driver = driver;
         initializeElements();
     }
+
     private void initializeElements() {
         digit0Button = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='0']"));
         digit1Button = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='1']"));
@@ -77,6 +78,7 @@ public class CalculatorPage {
         }
         return this;
     }
+
     public String getResultText() {
         resultTextView = driver.findElement(By.id("com.google.android.calculator:id/result_final"));
         return resultTextView.getText();

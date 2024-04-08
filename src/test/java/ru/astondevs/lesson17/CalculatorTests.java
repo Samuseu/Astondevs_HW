@@ -9,7 +9,7 @@ public class CalculatorTests extends TestBase {
 
     @Test
     @DisplayName("Тест сложения чисел")
-    void additionTest() throws InterruptedException {
+    void additionTest() {
         calculatorPage.clickDigitButton(2)
                 .performOperation("+")
                 .clickDigitButton(2)
