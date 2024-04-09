@@ -2,7 +2,6 @@ package ru.astondevs.lesson17;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import ru.astondevs.lesson17.page.CalculatorPage;
 
@@ -23,10 +22,5 @@ public class TestBase {
         options.setNoReset(true);
         driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), options);
         calculatorPage = new CalculatorPage(driver);
-    }
-
-    @AfterEach
-    void afterEach() {
-        driver.quit();
     }
 }

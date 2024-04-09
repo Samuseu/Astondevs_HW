@@ -18,6 +18,16 @@
 разработки). Способ передачи видео следует обговорить с
 проверяющим.**
 
+#### **Пример видеозаписи прохождения теста**
+![This image](images/lesson_17/lesson_17_1.gif)
+
 #### **Выполнение**
 
-![This image](images/lesson_16/lesson_16_1.png)
+![This image](images/lesson_17/lesson_17_1.png)
+![This image](images/lesson_17/lesson_17_2.png)
+![This image](images/lesson_17/lesson_17_3.png)
+![This image](images/lesson_17/lesson_17_4.png)
+
+
+#### **Результат**
+![This image](images/lesson_17/lesson_17_5.png)
