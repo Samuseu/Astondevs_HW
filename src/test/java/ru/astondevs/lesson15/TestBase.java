@@ -15,6 +15,7 @@ public class TestBase {
 
     @BeforeEach
     public void setUp() {
+
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();

@@ -1,15 +1,13 @@
 package ru.astondevs.lesson15.pages;
 
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class WildberriesPage {
 
@@ -23,19 +21,35 @@ public class WildberriesPage {
 
     public WildberriesPage baseUrl() {
         driver.get(BASE_URL);
+        acceptCookies();
+        removeBanners();
         return this;
     }
 
     public WildberriesPage selectThreeRandomProducts(List<String> expectedProductNames, List<String> expectedProductPrice) {
-        for (int i = 0; i < 3; i++) {
-            int randomIndex = generateRandomNumber(1, 28);
-            selectProduct(randomIndex)
-                    .addProductToCart();
-            expectedProductNames.add(getExpectedTittleText());
-            expectedProductPrice.add(getExpectedPrice());
-            navigateBack();
+        Set<Integer> selectedIndexes = new HashSet<>();
+        int productsToSelect = 7;
+
+        while (selectedIndexes.size() < productsToSelect) {
+            int randomIndex = generateRandomNumber(1, 20);
+            if (!selectedIndexes.contains(randomIndex)) {
+                selectProduct(randomIndex)
+                        .addProductToCart();
+                expectedProductNames.add(getExpectedTittleText());
+                expectedProductPrice.add(getExpectedPrice());
+                navigateBack();
+                selectedIndexes.add(randomIndex);
+            }
         }
         return this;
+    }
+    private void removeBanners() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".main-page__banners")));
+
+        for (WebElement banner : driver.findElements(By.cssSelector(".main-page__banners"))) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none'", banner);
+        }
     }
 
     public void verifyProductNames(List<String> expectedProductNames, List<String> actualProductNames) {

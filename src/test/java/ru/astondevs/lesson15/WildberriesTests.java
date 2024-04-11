@@ -14,7 +14,6 @@ public class WildberriesTests extends TestBase {
         List<String> expectedProductPrice = new ArrayList<>();
 
         wildberriesPage.baseUrl()
-                .acceptCookies()
                 .selectThreeRandomProducts(expectedProductNames, expectedProductPrice)
                 .openCartForCheck();
 
@@ -25,7 +24,7 @@ public class WildberriesTests extends TestBase {
         wildberriesPage.verifyProductNames(expectedProductNames, actualProductNames);
         wildberriesPage.verifyProductPrice(expectedProductPrice, actualProductPrice);
         wildberriesPage.verifyTotalPrice();
-        wildberriesPage.verifyItemCount(3);
+        wildberriesPage.verifyItemCount(7);
     }
 }
 
