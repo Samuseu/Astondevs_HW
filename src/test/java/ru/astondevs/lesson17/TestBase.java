@@ -20,7 +20,7 @@ public class TestBase {
         options.setAppPackage("com.google.android.calculator");
         options.setAppActivity("com.android.calculator2.Calculator");
         options.setNoReset(true);
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);
+        driver = new AndroidDriver(new URL("http://0.0.0.0:4723"), options);
         calculatorPage = new CalculatorPage(driver);
     }
 }
