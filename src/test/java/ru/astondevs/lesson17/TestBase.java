@@ -15,12 +15,12 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("Redmi note 9 Pro");
-        options.setPlatformVersion("12.0");
+        options.setDeviceName("sdk_gphone_x86_64");
+        options.setPlatformVersion("11.0");
         options.setAppPackage("com.google.android.calculator");
         options.setAppActivity("com.android.calculator2.Calculator");
         options.setNoReset(true);
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), options);
+        driver = new AndroidDriver(new URL("http://localhost:6080/wd/hub"), options);
         calculatorPage = new CalculatorPage(driver);
     }
 }
