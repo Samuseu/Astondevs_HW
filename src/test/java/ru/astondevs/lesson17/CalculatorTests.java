@@ -2,12 +2,14 @@ package ru.astondevs.lesson17;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
 public class CalculatorTests extends TestBase {
 
     @Test
+    @Tag("Phone")
     @DisplayName("Тест сложения чисел")
     void numberAdditionTest() {
         calculatorPage.clickDigitButton(2)
@@ -19,6 +21,7 @@ public class CalculatorTests extends TestBase {
     }
 
     @Test
+    @Tag("Phone")
     @DisplayName("Тест вычитания чисел")
     void subTractionOfNumbersTest() {
         calculatorPage.clickDigitButton(1)
@@ -31,6 +34,7 @@ public class CalculatorTests extends TestBase {
     }
 
     @Test
+    @Tag("Phone")
     @DisplayName("Тест умножение чисел")
     void multiplicationOfNumbersTest() {
         calculatorPage.clickDigitButton(3)
@@ -42,6 +46,7 @@ public class CalculatorTests extends TestBase {
     }
 
     @Test
+    @Tag("Phone")
     @DisplayName("Тест деление чисел")
     void divisionOfNumbersTest() {
         calculatorPage.clickDigitButton(4)
